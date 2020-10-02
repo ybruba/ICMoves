@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ICMoves</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="navstyle.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<div id="container">
+	<header class="header">
+	 <img src="imgs/logo.png" class="logo" alt="logo"> 
+		<input class="menu-btn" type="checkbox" id="menu-btn" />
+		<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+		<ul class="menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#">About us</a></li>
+			<li><a href="portfolio.html">Portfolio</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</header>
+	<main>
+	<div id="homeContainer">
+	<div id="bgimage">
+			<div id="top-text">
+				<p id="text-top">Helping people get their dream property</p><br>
+			<p id="bottom-text">Since 1993</p>
+		</div>
+	</div>
+	<div id="searchForm">
+		<div id="tabsContainer">
+			<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#for-sale">For Sale</a></li>
+					<li class="not-active"><a data-toggle="tab" href="#to-rent">To rent</a></li>
+				</ul>
+			
+				<div class="tab-content">
+					<div id="for-sale" class="tab-pane fade in active">
+							<form>
+									<div class="form-group">
+										<label>Location</label>
+										<input type="text" class="form-control inputlocation">
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label class="grupLabels">Price</label>
+											<select class="form-control inputState">
+													<option>0-50000</option>
+													<option>50000-100000</option>
+													<option>100000-150000</option>
+													<option>150000-200000</option>
+													<option>200000-250000</option>
+													<option>+250000</option>
+											</select>
+										</div>
+										<div class="form-group col-md-4">
+											<label class="grupLabels">Bedrooms</label>
+											<select class="form-control inputState">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>+5</option>
+											</select>
+										</div>
+										<div class="form-group col-md-4">
+												<label class="grupLabels">Property Type</label>
+												<select class="form-control inputState">
+														<option>House</option>
+														<option>Flat</option>
+														<option>retirement</option>
+														<option>land</option>
+												</select>
+										</div>
+									</div>
+									<a class="btn btn-primary searchPropertiesSale" href="portfolio.html">Search Properties</a>
+								</form>
+					</div>
+					<div id="to-rent" class="tab-pane fade">
+							<form>
+									<div class="form-group">
+										<label>Location</label>
+										<input type="text" class="form-control inputlocation">
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label class="grupLabels">Price</label>
+											<select class="form-control inputState">
+													<option>0-400</option>
+													<option>400-600</option>
+													<option>600-800</option>
+													<option>800-1000</option>
+													<option>+1000</option>
+											</select>
+										</div>
+										<div class="form-group col-md-4">
+											<label class="grupLabels">Bedrooms</label>
+											<select class="form-control inputState">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>+5</option>
+											</select>
+										</div>
+										<div class="form-group col-md-4">
+												<label class="grupLabels">Bedrooms</label>
+												<select class="form-control inputState">
+														<option>House</option>
+														<option>Flat</option>
+														<option>retirement</option>
+														<option>land</option>
+												</select>
+										</div>
+									</div>
+									<a class="btn btn-primary searchPropertiesSale" href="portfolio.html">Search Properties</a>
+								</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	<footer>
+		<p>Website for educational purposes only</p>
+		<p id="right">&copy; ICMoves</p>
+	</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
