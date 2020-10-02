@@ -1,0 +1,673 @@
+@charset "utf-8";
+/*box-sizing prevents margin and padding altering the height and width of an element*/
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+/*specified the size of the font for the whole website to 10px as default so it's easier to modify them as per style guides using rem*/
+html{
+	font-size: 10px;
+	box-sizing: border-box;
+}
+/*set font (Google Fonts), margin to 0*/
+body{
+	font-family: 'Nunito', sans-serif;
+	margin: 0;
+}
+/*display as grid to be able to position elements on screen. one column, 3 rows.*/
+#container{
+	display:grid;
+	grid-template-columns:100%;
+	grid-template-rows:75px 1fr auto;
+	grid-gap:0px;
+	height: 100vh;
+	margin: 0px auto;
+}
+/*position and style header*/
+header{
+	position: fixed;
+  	width: 100%;
+	height:75px;
+	background-color: #ffffff;
+	grid-row:1/2;
+	grid-column:1/2;
+}
+main{
+	grid-row:2/3;
+	grid-column:1/2;
+}
+/*position footer on grid, give width of 100% and fix it to the bottom. style with color.*/
+footer{
+	position:fixed;
+	left:0;
+	bottom:0;
+	width:100%;
+	background-color: #890620;
+	grid-row:3/4;
+	grid-column:1/2;
+}
+/*display both p items from the footer inline */
+footer p{
+	display:inline;
+	color: #ffffff;
+ }
+ /*float #right to the right*/
+ footer #right{
+	 float:right;
+ }
+ /*HOME PAGE STYLING*/
+/*set grid*/
+#homeContainer{
+	display:grid;
+	grid-template-columns:100%;
+	grid-template-rows: repeat(3, min-content);
+	grid-gap:0px;
+	margin: 0px auto;
+}
+/*set image on grid, set image as background and whole width.*/
+#bgimage{
+	grid-row: 1/2;
+	/*grid-row: 2/3;*/
+	grid-column:1/2;
+	height: 430px;
+	width:100%;
+	background-image: url("imgs/background-house.jpg");
+	background-position:center;
+}
+/*alignt text to the right, set a maximum width and float div to the right of the screen*/
+#top-text{
+	text-align: right;
+	max-width: 1000px;
+	float:right;
+}
+/*style the text, set background color, display as block, set max height, padding, margin and give the background colour a radius*/
+#bgimage p{
+	font-size: 50px;
+	color:#ffffff;
+	background-color: rgb(137,6,32, 0.8);
+	display: inline-block;
+	height: 100px;
+	padding: 15px 10px 0 20px;
+	margin-top: 20px;
+	border-radius: 20px 0 0 20px; 
+}
+/*FORM STYLING*/
+/*position on grid, set background color and padding bottom*/
+#searchForm{
+	/*grid-row:3/4;*/
+	grid-row: 2/3;
+	grid-column:1/2;
+	min-height: 10px;
+	background-color:#ffffff;
+	padding-bottom: 40px;
+}
+#svglogo{
+	grid-row: 3/4;
+	grid-column: 1/2;
+	width: 100vh;
+	height: 250px;
+	transform:translateY(-120px);
+}
+/*set margin from div to tabs*/
+#searchForm{
+	margin: 0 auto;
+}
+/*style tabs, give a width, translate -90 so it overlaps image*/
+#searchForm #tabsContainer{
+	padding-bottom: 40px;
+	border: 1px solid #890620;
+	width:600px;
+	background-color:rgb(255,255,255, 0.8);	
+	transform: translateY( -90px);
+}
+/*give padding of 10px to form items*/
+#searchForm form{
+	padding:10px;
+}
+/*give the tabs a width and align its text to centre*/
+#searchForm #tabsContainer li{
+	width: 290px;
+	text-align:center;
+}
+/*style the link of the active tab*/
+#searchForm #tabsContainer li.active a{
+	background:#890620;
+	color:#ffffff;
+}
+/*style the link of the non-active tab*/
+#searchForm #tabsContainer li a{
+	color:#890620;
+}
+/*style  "location"*/
+#searchForm label{
+	color: #890620;
+	font-size: 20px;
+}
+/*style the location's input box*/
+.inputlocation{
+	border: 1px solid  #890620;
+	width:560px;
+}
+/*style the select boxes (price, bedrooms, prop.type)*/
+.inputState{
+	border: 1px solid  #890620;
+	margin-left:-15px;
+}
+/*move to the left the labels of the select boxes to align with location*/
+#searchForm .grupLabels{
+	margin-left: -15px;
+}
+/*style the search properties button. Use !important to override Bootstrap styling*/
+.searchPropertiesSale{
+	width: 560px;
+	background-color:#890620 !important;
+	border: 1px solid  #890620 !important;
+	font-size: 20px !important;
+}
+
+/*PORTFOLIO PAGE STYLING*/
+/*display as grid*/
+#portfolio-container{
+	display:grid;
+	grid-template-columns: 60% 40%;
+	grid-template-rows: min-content 1fr;
+	grid-gap: 0px;
+	overflow-y: scroll;
+}
+
+/*BANNER STYLING + ANIMATION*/
+/*position the svg banner, give max width with %*/
+aside{
+	width: 80%;
+	grid-row:1/2;
+	grid-column:1/2;
+	margin-left: 20px;
+}
+/*give margin top for correct positioning*/
+.add-wrap{
+	margin-top: 150px;
+}
+/*style the svg text*/
+#text-1, #text-2, #text-3{
+fill: white;
+font-size: 35px;
+font-family: Sans-Serif;
+}
+/*animate the svg text - part 1*/
+#text-1{
+animation: hideshow 10s ease infinite;
+}
+/*animate the svg text - part 2*/
+#text-2{
+opacity: 0;
+animation: hideshow 10s 1.5s ease infinite;
+}
+/*animate the svg text - part 3*/
+#text-3{
+margin-left: 20px;
+opacity: 0;
+animation: hideshow 10s 3s ease infinite;
+}
+/*define the animation for the text*/
+@keyframes hideshow {
+0% { opacity: 1; }
+10% { opacity: 1; }
+15% { opacity: 0; }
+100% { opacity: 0; }
+}
+/*animate the van*/
+.van{
+transform: translateX(250px);
+animation: popup 2s 1s ease-out infinite;
+}
+/*define the animation for the van*/
+@keyframes popup {
+0% {
+transform: translateX(-50px);
+}
+25% {
+transform: translateX(0px);
+}
+50% {
+transform: translateX(150px);
+}
+75% {
+transform: translateX(350px);
+}
+100% {
+transform: translateX(450px);
+}
+}
+/*position it on grid, give margin-top for not colliding with header, position on centre*/
+#property-list{
+	grid-row:1/2;
+	grid-column:2/3;
+	margin-top: 150px;
+	left: 60%;
+	margin-left: -60%;
+}
+/*display as grid for positioning of elements*/
+.prop-list{
+	display:grid;
+	grid-template-columns:200px 1fr;
+	grid-template-rows: repeat(4, min-content);
+	grid-gap: 0px;
+	margin-bottom: 30px;
+	margin-left: 50px;
+}
+.side{
+	margin-left: 20px;
+}
+/*position and define height and width*/
+.prop-list img{
+	grid-row:1/5;
+	grid-column:1/2;
+	max-width: 200px;
+	height: 150px;
+}
+/*position, style*/
+.prop-list-price{
+	grid-row:1/2;
+	grid-column:2/3;
+	font-size: 30px;
+	color: #890620;
+}
+/*position, style*/
+.link-details{
+	grid-row:2/3;
+	grid-column:2/3;
+	font-size: 20px;
+	color: #b54057;
+	text-decoration: underline;
+}
+/*position, style*/
+.prop-list-details{
+	grid-row:3/4;
+	grid-column:2/3;
+	font-size: 20px;
+	margin-top: 10px;
+}
+/*position, style*/
+.prop-list-address{
+	grid-row:4/5;
+	grid-column:2/3;
+	font-size: 16px;
+	color: #8d8d8d;
+}
+
+/*PROPERTY DETAIL*/
+
+/*define grid for page*/
+#detailContainer{
+	display:grid;
+	grid-template-columns: 70% 30%;
+	grid-template-rows:repeat(4, min-content);
+	grid-gap: 10px;
+}
+/*position on grid, center*/
+#propImages{
+	grid-row:1/2;
+	grid-column:1/2;
+	margin: 0 auto;
+}
+/*position, style*/
+#propText{
+	grid-row:2/3;
+	grid-column:1/2;
+	margin: 0 auto;
+	font-size: 30px;
+	color: #b54057;
+	text-decoration: underline;
+}
+/*position, style*/
+#propTabs{
+grid-row:3/4;
+grid-column:1/2;
+margin: 0 auto;
+}
+/*position, style*/
+#propCalculator{
+	grid-row:4/5;
+	grid-column:1/2;
+	margin: 0 auto;
+	margin-bottom:50px;
+	transform:translateY(-150px);
+}
+/*give imgs width and height*/
+#propImages img{
+max-width: 600px;
+height:auto;
+margin-left: 20px;
+}
+/*give thumbnails size and position*/
+#thumbs img{
+	width: 150px;
+	height:auto;
+	margin-left: 10px;
+}
+
+
+/*TABS STYLING PROPERTY DETAIL PAGE*/
+/*style tabs, give a width*/
+#detailsTabContainer{
+	padding-bottom: 40px;
+	border: 1px solid #890620;
+	width:705px;
+	background-color:rgb(255,255,255, 0.8);	
+	margin-bottom: 150px;
+}
+/*give the tabs a width and align its text to centre*/
+ #detailsTabContainer li{
+	width: 234px;
+	text-align:center;
+}
+/*style the link of the active tab*/
+#detailsTabContainer li.active a{
+	background:#ffffff;
+	color: #890620;
+}
+/*style the link of the non-active tab*/
+#detailsTabContainer li a{
+	background:#890620;
+	color:#ffffff;
+}
+#propDetails{
+	padding: 10px;
+}
+#iconsDetails{
+	font-size: 20px;
+	text-align: center;
+	padding-top:10px;
+}
+#propDetails h3{
+	font-size: 30px;
+	color: #890620;
+}
+/*when the link is not clicked, do not display the extra text*/
+.show-read-more .more-text{
+	display: none;
+}
+/*give the map width and height*/
+.map {
+  width: 600px;
+  height: 600px;
+}
+/*style the calculator*/
+#calculatorDiv{
+	border: 1px solid #890620;
+	width: 704px;
+	height:auto;
+}
+/*style the calculator header*/
+#mortgagecalch1{
+	text-align:center; 
+	background-color:#890620;
+	color: #ffffff;
+	margin-top: 0;
+	padding: 5px;
+}
+/*style inputs*/
+.inputs {
+	display: flex;
+	padding: .8rem 0;
+	margin-bottom: .5rem;
+	background: hsl(0,0%,96%);
+}
+/*style labels*/
+.inputs > label {
+	flex: 1;
+	padding: 1em;
+	margin: 0 .5em;
+	color: #890620;
+	font-size: 18px;
+}
+.inputs input {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	font-size: 160%;
+	background: transparent;
+	padding: .2em 0;
+	border: none;
+	border-bottom: 1px solid #890620;
+	color: black;
+	outline: none;
+}
+.inputs input:focus {
+	border-bottom-color: rgba(0,0,0,.8);
+}
+.outputs {
+padding: 1rem 2em;
+font-size: 80%;
+color: #890620;
+}
+
+.outputs > div {
+display: flex;
+margin: .8em 0;
+align-items: baseline;
+}
+
+.total {
+color: #890620;
+}
+.total span{
+	color: #9d9595;
+}
+.outputs > div span {
+	display: inline-block;
+	margin-left: auto;
+}
+.amazing-rate {
+color: hsl(80, 80%, 40%);
+font-weight: bold;
+font-size: 20px;
+}
+
+.payment {
+display: inline-block;
+font-size: 25px;
+color: #000000;
+}
+
+.payment::before {
+	content: "$"
+}
+
+/*TABLET STYLING RESPONSIVENESS*/
+@media only screen and (max-width: 1024px) {
+	/*HOME PAGE RESPONSIVE TABLET*/
+	/*set text to a smaller font*/
+	#bgimage p{
+		font-size: 45px;
+	}
+		/*PORTFOLIO PAGE RESPONSIVE MOBILE*/
+	/**/
+	#portfolio-container{
+		display:grid;
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(2, min-content);
+		grid-gap: 0px;
+	}
+	/*BANNER STYLING + ANIMATION*/
+	/**/
+	aside{
+		width: 80%;
+		grid-row:2/3;
+		grid-column:1/2;
+		margin-left: 20px;
+	}
+	/**/
+	#property-list{
+		grid-row:1/2;
+		grid-column:1/2;
+		margin-top: 100px;
+		margin-left: 5px;
+	}
+}
+
+/*MOBILE PHONES STYLING RESPONSIVENESS*/
+@media only screen and (max-width: 500px) {
+	/*HOME PAGE RESPONSIVE MOBILE*/
+	
+	/*smaller text, give it a smaller width, set margin top*/
+	#top-text{
+		max-width: 280px;
+		margin-top: 20px;
+	}
+	/*change padding, font-size, height and margins*/
+	#bgimage p{
+		font-size: 25px;
+		max-height: 200px;
+		padding: 10px 10px 0 10px;
+		margin: 20px 0 20px 0;
+	}
+	/*change the height of the bottom part of the text.*/
+	#bottom-text{
+		max-height: 60px !important;
+	}
+	/**/
+	#searchForm{
+		margin-left: 20px;	
+	}
+	/*style tabs, give a width, translate -90 so it overlaps image*/
+	#searchForm #tabsContainer{
+		padding-bottom: 40px;
+		width:360px;
+	}
+
+	/*give the tabs a width and align its text to centre*/
+	#searchForm #tabsContainer li{
+		width: 170px;
+	}
+	/*style the location's input box*/
+	.inputlocation{
+		border: 1px solid  #890620;
+		
+		width:320px;
+	}
+	/*style the search properties button. Use !important to override Bootstrap styling*/
+	.searchPropertiesSale{
+		width: 320px;
+
+	}
+	/*PORTFOLIO PAGE RESPONSIVE MOBILE*/
+	/**/
+	#portfolio-container{
+		display:grid;
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(2, min-content);
+		grid-gap: 0px;
+	}
+	/*BANNER STYLING + ANIMATION*/
+	/**/
+	aside{
+		width: 80%;
+		grid-row:2/3;
+		grid-column:1/2;
+		/*margin-left: 20px;*/
+	}
+	/**/
+	#property-list{
+		grid-row:1/2;
+		grid-column:1/2;
+		margin-top: 100px;
+		margin-left: 5px;
+	}
+/**/
+.prop-list{
+	display:grid;
+	grid-template-columns:150px 1fr;
+	grid-template-rows: repeat(4, min-content);
+	grid-gap: 0px;
+	margin-bottom: 30px;
+	margin-left: 20px;
+}
+/**/
+.side{
+	margin-left: 60px;
+}
+/**/
+.prop-list img{
+	grid-row:1/5;
+	grid-column:1/2;
+}
+/**/
+.prop-list-price{
+	grid-row:1/2;
+	grid-column:2/3;
+	font-size: 25px;
+	color: #890620;
+}
+/**/
+.link-details{
+	grid-row:2/3;
+	grid-column:2/3;
+	font-size: 17px;
+	color: #b54057;
+	text-decoration: underline;
+}
+/**/
+.prop-list-details{
+	grid-row:3/4;
+	grid-column:2/3;
+	font-size: 18px;
+	margin-top: 5px;
+}
+/**/
+.prop-list-address{
+	grid-row:4/5;
+	grid-column:2/3;
+	font-size: 12px;
+	color: #8d8d8d;
+}
+
+/*DETAIL PROPERTY RESPONSIVE MOBILE*/
+#propText{
+margin-left: 10px;
+font-size: 25px;
+}
+#propTabs{
+margin-left: 10px;
+}
+#propImages img{
+	max-width: 350px;
+	height:auto;
+	margin-left: 20px;
+	margin-top: 20px;
+	}
+	#thumbs img{
+		width: 79px;
+		margin-left: 10px;
+	}
+/*style tabs, give a width*/
+#detailsTabContainer{
+	width:350px;
+
+}
+/*give the tabs a width and align its text to centre*/
+ #detailsTabContainer li{
+	width: 115px;
+}
+#iconsDetails{
+	font-size: 18px;
+}
+#propDetails h3{
+	font-size: 25px;
+}
+.map {
+  width: 350px;
+  height: 350px;
+}
+#calculatorDiv{
+	width: 350px;
+	margin-left: 10px;
+}
+.payment {
+font-size: 18px;
+}
+
+}
